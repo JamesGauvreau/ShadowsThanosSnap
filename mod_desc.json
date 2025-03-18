@@ -1,0 +1,7 @@
+{
+	"displayedName": "Thanos Snap",
+	"prefix": "thanos",
+	"description": "Adds a new power to every god allowing them to wipe out half the named characters.",
+	"versionsSupported":["0.11","0.12","0.13","0.14","1.0","1.1","2.0"],
+	"modCredit": "Callmesalticidae / SOFG DLL Modding Guide" 
+}
