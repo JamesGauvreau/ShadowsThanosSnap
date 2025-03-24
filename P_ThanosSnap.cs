@@ -18,23 +18,31 @@ namespace ShadowsThanosSnap // Annotations from the DLL Modding Guide on SOFG Wi
 
         public /* Can be used by things outside P_EyesInShadows or Power */ override /* Replaces the "return 'Default Name' " function from the Power Class */ string /* function will return a string */ getName() // Like JS, functions need parentheses even if there's nothing in them.
         {
-            return "Eyes in the Shadows"; // Make sure to always have semicolons at the end of lines in C#.
+            return "Thano Snap"; // Make sure to always have semicolons at the end of lines in C#.
         }
 
         public override string getDesc()
         {
-            return "Boosts the infiltration in selected location";
+            return "Every named character not under your control has a 50% chance of dying instantly. Characters under your control will survive, but will gain ten <b>menace</b>.";
         }
 
         public override Sprite getIconFore()
         {
-            return map.world.iconStore.enshadow; // "Eyes in the Shadows" uses the same icon as "Enshadow."
+            return EventManager.getImg("thanos.power_snap.png") // This tells the game to look in the thanos mod for the image. Because EventManager.getImg() is a static function, it can be used without having a specific EventManager to work with. Consider using Static functions and properties when they aren't related to any specific instance of the class, but remember that they won't have their status saved and loaded with the game even if they are public.
+            /* return map.world.iconStore.enshadow */; // "Eyes in the Shadows" uses the same icon as "Enshadow."
         }
 
-        public override bool validTarget(Unit unit)
+        public override bool /* short for Boolean */ validTarget(Unit unit)
         {
             return false;
         }
+
+        // Other variables —
+        // int: "integer", from -2 billion to 2 billion, but no fractions. Character's gold is an int.
+        // double: Store up to 15-17 digits, in fractions or whole numbers. A settlement's shadow is a double between 0 and 1, and a modifier's charge is a double between 0 and 300. 
+        // bool: true or false.
+        // string: text.
+        // float: as double, but shorter and smaller. Not used much in SoFG. 
 
         public override bool validTarget(Location loc)
         {
